@@ -6,9 +6,18 @@ import org.junit.jupiter.api.Test;
 
 class PlateauTest {
 
+
+	private char [][] plateau;
+
 	@Test
 	void test() {
-		fail("Not yet implemented");
+		int x =10;
+		int y = 10;
+		 
+		 
+		if (plateau[x][y] != 'x') {
+			fail( "différent de X ");
+	        }
 	}
 
 }
