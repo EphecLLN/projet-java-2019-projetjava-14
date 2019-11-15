@@ -2,7 +2,7 @@ package projet;
 
 import java.util.*;
 
-public class main {
+public class Main {
 
 		public static void main(String[] args) {
 			Plateau p1 = new Plateau(10, 10);
@@ -12,6 +12,6 @@ public class main {
 			// ajoute un bateau verti
 			p1.placerVerti(1,2,3);
 			// tire en 1,2
-			p1.feu(1,2);
+			//p1.feu(1,2);
 		}
 }

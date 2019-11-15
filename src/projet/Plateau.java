@@ -11,6 +11,13 @@ public class Plateau {
 	
 	//  Constructeur
 	
+	/**
+     * Crée le plateau
+     * 
+     * @param l , le nombre de lignes
+     * @param c , le nombre de colonnes
+     */
+	
 	public Plateau(int l, int c) {
 		nbLig = l;
 		nbCol = c;
@@ -24,6 +31,11 @@ public class Plateau {
 	}
 	
 	//  Methode
+	/**
+     * Crée le spérateur entre chaque ligne
+     * 
+     * @param n, nombre de lignes
+     */
 	
 	public void afficheSeparateur(int n) {
 		for (int i = 0; i < n; i++) {
@@ -31,6 +43,14 @@ public class Plateau {
 		}
 		System.out.println();
 	}
+	
+	
+	
+	/**
+     * Affiche en console le plateau
+     * 
+     *
+     */
 	
 	public void afficherConsole() {
 		System.out.println("Touché coulé explose");
@@ -45,6 +65,15 @@ public class Plateau {
 			afficheSeparateur(nbCol);
 		}
 	}
+	
+	
+	/**
+     * Ajoute un bateau en horizontale et mAj le plateau en console
+     * 
+     * @param x , la position x de départ du bateau
+     * @param y , la position y de départ du bateau
+     * @param t , le type de bateau ( taille de celui-ci)
+     */
 	
 	public void placerHori(int x, int y, int t) {
 		x = x-1;
@@ -69,6 +98,14 @@ public class Plateau {
 		}
 	}
 	
+	/**
+     * Ajoute un bateau en horizontale et mAj le plateau en console
+     * 
+     * @param x , la position x de départ du bateau
+     * @param y , la position y de départ du bateau
+     * @param t , le type de bateau ( taille de celui-ci)
+     */
+	
 	public void placerVerti(int x, int y, int t) {
 		x = x-1;
 		y = y-1;
@@ -92,24 +129,5 @@ public class Plateau {
 		}
 	}
 	
-	public void feu(int x, int y) {
-		
-		x = x-1;
-		y = y-1;
-		
-		if( plateau[x][y] == 'B' || plateau[x-1][y] == 'B' || plateau[x][y-1] == 'B'|| plateau[x][y-1] == 'B') {
-			plateau[x][y] = 'T';
-			System.out.print("Touché en "+ x +" : " + y);
-			afficherConsole();
-			return;
-		}else {
-			plateau[x][y] = 'R' ;
-			System.out.print("Il n'y a pas de bateau à cette position");
-			afficherConsole();
-			return;
-			
-		}
-		
-	}
 
 }
