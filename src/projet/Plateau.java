@@ -1,5 +1,5 @@
 package projet;
-
+import java.util.Random;
 
 public class Plateau {
 	
@@ -90,6 +90,26 @@ public class Plateau {
 			plateau[x+i][y] = 'B';
 			afficherConsole();
 		}
+	}
+	
+	public void feu(int x, int y) {
+		
+		x = x-1;
+		y = y-1;
+		
+		if( plateau[x][y] == 'B' || plateau[x-1][y] == 'B' || plateau[x][y-1] == 'B'|| plateau[x][y-1] == 'B') {
+			plateau[x][y] = 'T';
+			System.out.print("Touché en "+ x +" : " + y);
+			afficherConsole();
+			return;
+		}else {
+			plateau[x][y] = 'R' ;
+			System.out.print("Il n'y a pas de bateau à cette position");
+			afficherConsole();
+			return;
+			
+		}
+		
 	}
 
 }

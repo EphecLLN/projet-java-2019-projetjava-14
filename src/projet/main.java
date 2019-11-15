@@ -11,5 +11,7 @@ public class main {
 			p1.placerHori(1,3,4);
 			// ajoute un bateau verti
 			p1.placerVerti(1,2,3);
+			// tire en 1,2
+			p1.feu(1,2);
 		}
 }
