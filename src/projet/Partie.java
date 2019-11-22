@@ -29,30 +29,27 @@ public class Partie {
 		
 		System.out.println();
 		
-		int c=0;
 	
-		for(int i=0; i < listePlateaux.length ; i++) {
+		//for(int i=0; i < listePlateaux.length ; i++) {
 		
-			while(++c < listeBateaux.length) {
+			for(int b=0; b < listeBateaux.length ; b++) {
 				
-				System.out.println("introduire type de bateau");
-				String bateau = sc.nextLine();
+				System.out.println(listeBateaux[b].toString());
+				
 				System.out.println("introduire l'orientation v/h");
-				String orientation = sc.nextLine();
+				String orientation = sc.next();
 				System.out.println("introduire coordonné x");
 				int coordx = sc.nextInt();
 				System.out.println("introduire coordoné y");
 				int coordy = sc.nextInt();
 				
-				listePlateaux[i].placerBateau(coordx,coordy,bateau,orientation);
-				// ajoute un bateau verti
-				//listePlateaux[i].placerVerti(1,2,3);
-				// tire en 1,2
-				//p1.feu(1,2);
-				System.out.println("\n" + listePlateaux[i].getJoueur() + "\n");
-				listePlateaux[i].afficherConsole();
+				listePlateaux[0].placerBateau(coordx,coordy,listeBateaux[b].getPointsVie() ,orientation);
+				
+				
 			}
-		}
+			System.out.println("\n" + listePlateaux[0].getJoueur() + "\n");
+			listePlateaux[0].afficherConsole();
+		//}
 	}
 	
 }

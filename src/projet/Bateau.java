@@ -79,16 +79,6 @@ public class Bateau {
 	}
 
 
-	public Orientation getOrientation() {
-		return orientation;
-	}
-
-
-	public void setOrientation(Orientation orientation) {
-		this.orientation = orientation;
-	}
-
-
 	public int getX() {
 		return x;
 	}
