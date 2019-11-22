@@ -54,7 +54,7 @@ public class Bateau {
 }
 	
 	public String toString() {
-		   return this.nomBateau + " avec " + this.pointsVie + " points de vie";
+		   return "pour le bateau " + this.nomBateau + " avec " + this.pointsVie + " points de vie";
 		}
 
 	// getter setter

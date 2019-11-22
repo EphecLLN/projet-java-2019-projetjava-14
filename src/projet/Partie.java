@@ -30,8 +30,8 @@ public class Partie {
 		System.out.println();
 		
 	
-		//for(int i=0; i < listePlateaux.length ; i++) {
-		
+		for(int i=0; i < listePlateaux.length ; i++) {
+			System.out.println("\n" + listePlateaux[0].getJoueur() + "\n");
 			for(int b=0; b < listeBateaux.length ; b++) {
 				
 				System.out.println(listeBateaux[b].toString());
@@ -49,7 +49,7 @@ public class Partie {
 			}
 			System.out.println("\n" + listePlateaux[0].getJoueur() + "\n");
 			listePlateaux[0].afficherConsole();
-		//}
+		}
 	}
 	
 }
