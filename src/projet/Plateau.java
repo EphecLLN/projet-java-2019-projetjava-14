@@ -5,7 +5,7 @@ public class Plateau {
 	
 	//  Attributs
 	
-	private int nbBateau;
+	private Bateau [] listeBateaux;
 	private int nbLig;
 	private int nbCol;
 	private char [][] plateau;
@@ -39,13 +39,26 @@ public class Plateau {
 		nbLig = l;
 		nbCol = c;
 		plateau = new char[nbLig][nbCol];
+		// Initialisation des bateaux
+	    
+		listeBateaux = new Bateau[4];
 		
 		for(int x=0; x<nbLig; x++) {
 			for(int y=0; y<nbCol; y++) {
+				
 				plateau[x][y] = 'x';
 			}
 		}
 	}
+	
+	public Bateau[] getListeBateaux() {
+		return listeBateaux;
+	}
+
+	public void setListeBateaux(Bateau[] listeBateaux) {
+		this.listeBateaux = listeBateaux;
+	}
+
 	
 	//  Methode
 	/**
@@ -109,8 +122,10 @@ public class Plateau {
      */
 	
 	
-	public void placerHori(int bx, int by, int t) {
+	public void placerHori(int bx, int by, Bateau b) {
 		
+		int x  = bx+1;
+		int y = by+1;
 		
 		// si le bateau se trouve sur le grille
 		if (bx<0 || by<0 || bx>nbCol || by>nbLig) {
@@ -118,18 +133,18 @@ public class Plateau {
 			return;
 		}
 		// teste si cellule est vide
-		for(int i=0; i<t; i++ ) {
-			if(plateau[bx][by+i]!='x') {
-				System.out.println("Erreur un bateau se trouve en ( "+ bx +  " ,  " + by + ") ");
+		for(int i=0; i < b.getPointsVie(); i++ ) {
+			if(plateau[by][bx+i]!='x') {
+				System.out.println("Erreur un bateau se trouve en ( "+ x +  " ,  " + y + ") ");
 				return;
 			}
 		}
-		for(int i=0; i<t; i++ ) {
-			plateau[bx][by+i] = 'B';
+		for(int i=0; i < b.getPointsVie(); i++ ) {
+			plateau[by][bx+i] = 'B';
 			//afficherConsole();
 		}
 		
-		System.out.println("le Bateau a bien été placé horizontalement en ("+ bx + " , " + by +")");
+		System.out.println("le Bateau a bien été placé horizontalement en ("+ x + " , " + y +")");
 	}
 	
 	/**
@@ -140,39 +155,42 @@ public class Plateau {
      * @param t , le type de bateau ( taille de celui-ci)
      */
 	
-		public void placerVerti(int bx, int by, int t) {
+		public void placerVerti(int bx, int by, Bateau b) {
 		
+		int x  = bx+1;
+		int y = by+1;
+			
 		// si le bateau se trouve sur le grille
 		if (bx<0 || by<0 || bx>nbCol || by>nbLig) {
 			System.out.println("Erreur le plateau est hors zone de jeu !");
 			return;
 		}
 		// teste si cellule est vide
-		for(int i=0; i<t; i++ ) {
-			if(plateau[bx+i][by]!='x') {
-				System.out.println("Erreur un bateau se trouve en ( "+ bx +  " ,  " + by + ") ");
+		for(int i=0; i < b.getPointsVie(); i++ ) {
+			if(plateau[by+i][bx]!='x') {
+				System.out.println("Erreur un bateau se trouve en ( "+ x +  " ,  " + y + ") ");
 				return;
 			}
 		}
-		for(int i=0; i<t; i++ ) {
-			plateau[bx+i][by] = 'B';
+		for(int i=0; i < b.getPointsVie(); i++ ) {
+			plateau[by+i][bx] = 'B';
 			//afficherConsole();
 		}
 		
-		System.out.println("le Bateau a bien été placé verticalement en ("+ bx + " , " + by +")");
+		System.out.println("le Bateau a bien été placé verticalement en ("+ x + " , " + y +")");
 	}
 	
-		public void placerBateau(int coordx, int coordy, int pointsVie, String orientation) {
+		public void placerBateau(int coordx, int coordy, Bateau bateau, String orientation) {
 		
 			int x = coordx-1;
 			int y = coordy-1;
 		
 			switch(orientation) {
 			case "h" : 
-				placerHori(coordx, coordy, pointsVie);
+				placerHori(x, y, bateau);
 				break;
 			case "v" : 
-				placerVerti(coordx, coordy, pointsVie);
+				placerVerti(x, y, bateau);
 				break;
 			default : 
 				

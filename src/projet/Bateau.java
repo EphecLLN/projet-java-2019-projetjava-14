@@ -4,8 +4,8 @@ public class Bateau {
 	
 	//  Attributs
 	
-	private String nomBateau;
-	private int pointsVie;
+	public String nomBateau;
+	public int pointsVie;
 	private int x ;
 	private int y ;
 	private boolean coule;
@@ -19,42 +19,14 @@ public class Bateau {
 	this.nomBateau = nomBateau;
 	this.pointsVie = pointsVie;
 	this.coule = false;
+	this.x = 0;
+	this.y = 0;
 	
-	/*if( x < 0 || y < 0 || x > 10 || y > 10 ) {
-		throw new BateauHorsZone(x, y, nomBateau);
+	
 	}
-	else {
-		
-		if(this.orientation == Orientation.HORIZONTAL && x+pointsVie > 10 ) {
-			throw new BateauHorsZone(nomBateau);
-		}
-		else if(this.orientation == Orientation.VERTICAL && y+pointsVie > 10 ) {
-			throw new BateauHorsZone(nomBateau);
-		}
-		else {
-			this.x = x;
-			this.y = y;
-			this.coule = false;
-		}
-	}
-	
-	// vérifie si le bateau est coulé
-	
-		public boolean verifieBateauCoule() {
-			
-			
-			if(this.pointsVie == 0) {
-				this.coule = true;
-				return true;
-			}
-			else
-				return false;
-					
-		}*/
-}
 	
 	public String toString() {
-		   return this.nomBateau + " avec " + this.pointsVie + " points de vie";
+		   return "Pour le bateau " + this.nomBateau + " avec " + this.pointsVie + " points de vie";
 		}
 
 	// getter setter
