@@ -1,6 +1,5 @@
 package projet;
 
-import java.util.*;
 
 public class Main {
 
