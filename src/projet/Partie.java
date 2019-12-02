@@ -2,6 +2,12 @@ package projet;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+/**
+ * @author Leveau Arnaud
+ * 
+ */
+
 public class Partie {
 	
 	public Partie(String[] args) {
@@ -81,6 +87,8 @@ public class Partie {
 		}
 		//test tire en une coord(x,y)
 		Shoots.feu(1, 1, listePlateaux[1]);
+		listePlateaux[1].afficherConsole();
+		Shoots.superFeu(2, 2, listePlateaux[1]);
 		listePlateaux[1].afficherConsole();
 
 	}

@@ -1,6 +1,11 @@
 package projet;
 import java.util.Random;
 
+/**
+ * @author Leveau Arnaud
+ * 
+ */
+
 public class Plateau {
 	
 	//  Attributs
