@@ -1,5 +1,10 @@
 package projet;
 
+/**
+ * @author Leveau Arnaud
+ * 
+ */
+
 public class Bateau {
 	
 	//  Attributs
