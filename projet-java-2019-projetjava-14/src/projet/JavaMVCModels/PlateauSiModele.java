@@ -1,10 +1,11 @@
 package projet.JavaMVCControllers;
-import java.util.Random;
+import java.util.Observable;
+
 
 import projet.JAVAMVCViews.MVCViews;
 
 
-public class Plateau {
+public class Plateau extends Observable {
 	
 	//  Attributs
 	
@@ -60,6 +61,8 @@ public class Plateau {
 
 	public void setListeBateaux(MVCControllers[] listeBateaux) {
 		this.listeBateaux = listeBateaux;
+		setchanged();
+		notifyObservers();
 	}
 
 	
@@ -85,6 +88,8 @@ public class Plateau {
 			System.out.println(" | " + (x+1));
 			MVCViews.afficheSeparateur(nbCol);
 		}
+		setChanged();
+		notifyObservers();
 	}
 	public char[][] getPlateau() {
 		return plateau;
@@ -92,6 +97,8 @@ public class Plateau {
 
 	public void setPlateau(char[][] plateau) {
 		this.plateau = plateau;
+		setChanged();
+		notifyObservers();
 	}
 
 	public String getJoueur() {
@@ -100,6 +107,8 @@ public class Plateau {
 
 	public void setJoueur(String joueur) {
 		this.joueur = joueur;
+		setChanged();
+		notifyObservers();
 	}
 
 	/**
@@ -134,6 +143,8 @@ public class Plateau {
 		}
 		
 		System.out.println("le Bateau a bien été placé horizontalement en ("+ x + " , " + y +")");
+		setChanged();
+		notifyObservers();
 	}
 	
 	/**
@@ -185,5 +196,7 @@ public class Plateau {
 				
 		
 			}
+			setChanged();
+			notifyObservers();
 		}
 }
