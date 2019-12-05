@@ -9,7 +9,7 @@ import java.util.Scanner;
  * 
  */
 
-public class Partie {
+public class Partie implements Observer {
 	
 	public Partie(String[] args) {
 		

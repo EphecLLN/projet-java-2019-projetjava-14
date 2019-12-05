@@ -43,6 +43,7 @@ public class Bateau {
 
 	public void setNomBateau(String nomBateau) {
 		this.nomBateau = nomBateau;
+		control();
 	}
 
 
@@ -53,6 +54,7 @@ public class Bateau {
 
 	public void setPointsVie(int pointsVie) {
 		this.pointsVie = pointsVie;
+		control();
 	}
 
 
@@ -63,6 +65,7 @@ public class Bateau {
 
 	public void setX(int x) {
 		this.x = x;
+		control();
 	}
 
 
@@ -73,6 +76,7 @@ public class Bateau {
 
 	public void setY(int y) {
 		this.y = y;
+		control();
 	}
 
 
@@ -83,5 +87,6 @@ public class Bateau {
 
 	public void setCoule(boolean coule) {
 		this.coule = coule;
+		control();
 	}
 }
