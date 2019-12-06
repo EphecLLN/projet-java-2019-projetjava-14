@@ -1,17 +1,17 @@
 package projet.JavaMVCControllers;
 import java.util.Random;
 
-import projet.JAVAMVCViews.MVCViews;
+import projet.JAVAMVCViews.MVCViewsConsole;
 
 
 public class Plateau {
 	
 	//  Attributs
 	
-	private MVCControllers [] listeBateaux;
-	private int nbLig;
-	private int nbCol;
-	private char [][] plateau;
+	protected static MVCControllers [] listeBateaux;
+	protected static int nbLig;
+	protected static int nbCol;
+	protected static char [][] plateau;
 	public String joueur;
 	
 	//  Constructeur par dÃ©faut
@@ -59,39 +59,16 @@ public class Plateau {
 	}
 
 	public void setListeBateaux(MVCControllers[] listeBateaux) {
-		this.listeBateaux = listeBateaux;
+		Plateau.listeBateaux = listeBateaux;
 	}
-
-	
-	//  Methode
-	/**
-     * Créé le spéparateur entre chaque ligne
-     * 
-     * @param n, nombre de lignes
-     */
-	
 		
 	//Affiche en console le plateau
-	public void afficherConsole() {
-		System.out.println("Touché coulé explosé");
-		System.out.println();
-		MVCViews.numeroCase(nbCol);
-		MVCViews.afficheSeparateur(nbCol);
-		for(int x=0; x<nbLig; x++) {
-			for(int y=0; y<nbCol; y++) {
-				System.out.print(" | " + plateau[x][y]);
-			
-			}
-			System.out.println(" | " + (x+1));
-			MVCViews.afficheSeparateur(nbCol);
-		}
-	}
 	public char[][] getPlateau() {
 		return plateau;
 	}
 
 	public void setPlateau(char[][] plateau) {
-		this.plateau = plateau;
+		Plateau.plateau = plateau;
 	}
 
 	public String getJoueur() {
@@ -102,84 +79,19 @@ public class Plateau {
 		this.joueur = joueur;
 	}
 
-	/**
-     * Ajoute un bateau en horizontale et mAj le plateau en console
-     * 
-     * @param x , la position x de dÃ©part du bateau
-     * @param y , la position y de dÃ©part du bateau
-     * @param t , le type de bateau ( taille de celui-ci)
-     */
+
 	
-	
-	public void placerHori(int bx, int by, MVCControllers b) {
-		
-		int x  = bx+1;
-		int y = by+1;
-		
-		// si le bateau se trouve sur le grille
-		if (bx<0 || by<0 || bx>nbCol || by>nbLig) {
-			System.out.println("Erreur le plateau est hors zone de jeu !");
-			return;
-		}
-		// teste si cellule est vide
-		for(int i=0; i < b.getPointsVie(); i++ ) {
-			if(plateau[by][bx+i]!='x') {
-				System.out.println("Erreur un bateau se trouve en ( "+ x +  " ,  " + y + ") ");
-				return;
-			}
-		}
-		for(int i=0; i < b.getPointsVie(); i++ ) {
-			plateau[by][bx+i] = 'B';
-			//afficherConsole();
-		}
-		
-		System.out.println("le Bateau a bien été placé horizontalement en ("+ x + " , " + y +")");
-	}
-	
-	/**
-     	* Ajoute un bateau en horizontale et mAj le plateau en console
-     * 
-     * @param x , la position x de départ du bateau
-     * @param y , la position y de départ du bateau
-     * @param t , le type de bateau ( taille de celui-ci)
-     */
-	
-		public void placerVerti(int bx, int by, MVCControllers b) {
-		
-		int x  = bx+1;
-		int y = by+1;
-			
-		// si le bateau se trouve sur le grille
-		if (bx<0 || by<0 || bx>nbCol || by>nbLig) {
-			System.out.println("Erreur le plateau est hors zone de jeu !");
-			return;
-		}
-		// teste si cellule est vide
-		for(int i=0; i < b.getPointsVie(); i++ ) {
-			if(plateau[by+i][bx]!='x') {
-				System.out.println("Erreur un bateau se trouve en ( "+ x +  " ,  " + y + ") ");
-				return;
-			}
-		}
-		for(int i=0; i < b.getPointsVie(); i++ ) {
-			plateau[by+i][bx] = 'B';
-			afficherConsole();
-		}
-		
-		System.out.println("le Bateau a bien été placé verticalement en ("+ x + " , " + y +")");
-	}
-	
-		public void placerBateau(int coordx, int coordy, MVCControllers bateau, String orientation) {
+		public static void placerBateau(int coordx, int coordy, MVCControllers bateau, String orientation, Plateau plateau) {
 		
 			int x = coordx-1;
 			int y = coordy-1;
 		
 			switch(orientation) {
 			case "h" : 
-				placerHori(x, y, bateau);
+				MVCViewsConsole.placerHori(x, y, bateau, plateau);
 				break;
 			case "v" : 
-				placerVerti(x, y, bateau);
+				MVCViewsConsole.placerVerti(x, y, bateau, plateau);
 				break;
 			default : 
 				
