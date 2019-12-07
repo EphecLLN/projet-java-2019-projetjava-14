@@ -1,11 +1,12 @@
 package projet.JavaCollection;
 
-import projet.JavaMVCModels.MVCModel;
+import projet.JAVAMVCViews.GamePlay;
 
 public class MVCMain {
 
 		public static void main(String[] args) {
 			
-			MVCModel partie = new MVCModel(args) ;
+			GamePlay partie = new GamePlay() ;
+			
 		}
 }
