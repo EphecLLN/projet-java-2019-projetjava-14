@@ -5,12 +5,25 @@ import java.util.Scanner;
 
 import projet.JavaMVCControllers.MVCControllers;
 import projet.JavaMVCControllers.Plateau;
-import projet.JavaMVCModels.MVCModel;
 
 public class GamePlay {
 	
-public static void gamePlay() {
-	  
+	public GamePlay(String[] args) {
+		
+		Plateau [] listePlateaux = new Plateau[2];
+				
+				listePlateaux[0] = new Plateau("joueur 1", 10, 10);
+				listePlateaux[1] = new Plateau("joueur 2", 10, 10);
+				
+				// Initialisation des bateaux
+			    
+						MVCControllers [] listeBateaux = new MVCControllers[4];
+						
+						listeBateaux[0] = new MVCControllers("sous-marins", 1);
+						listeBateaux[1] = new MVCControllers("torpilleurs", 2);
+						listeBateaux[2] = new MVCControllers("croiseurs", 3);
+						listeBateaux[3] = new MVCControllers("cuirassé", 4);
+			
 		Scanner sc = new Scanner(System.in);
 	// ajout nom des joueurs
     for(int p =0 ;p < listePlateaux.length ; p++) {
