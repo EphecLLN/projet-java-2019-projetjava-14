@@ -21,12 +21,12 @@ public class Shoots {
 		if( coord[y][x] == 'B') {
 		
 			coord[y][x] = 'T';
-			System.out.println("Touché en "+ x +" : " + y);
+			System.out.println("TouchÃ© en "+ x +" : " + y);
 			return;
 		}
 		else {
 			coord[y][x] = 'O' ;
-			System.out.println("Il n'y a pas de bateau à  cette position");
+			System.out.println("Il n'y a pas de bateau dans cette position");
 		return;
 			
 		}
@@ -52,12 +52,12 @@ public class Shoots {
 			if( coord[listeCoord[a][1]][listeCoord[a][0]] == 'B') {
 				
 				coord[listeCoord[a][1]][listeCoord[a][0]] = 'T';
-				System.out.println("Touché en "+ x +" : " + y);
+				System.out.println("Touchï¿½ en "+ x +" : " + y);
 				
 			}
 			else {
 				coord[listeCoord[a][1]][listeCoord[a][0]] = 'O' ;
-				System.out.println("Il n'y a pas de bateau à  cette position");
+				System.out.println("Il n'y a pas de bateau ï¿½ cette position");
 			
 				
 			}

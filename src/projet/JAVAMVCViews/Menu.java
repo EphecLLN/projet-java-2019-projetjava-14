@@ -42,8 +42,8 @@ public class Menu extends JFrame implements ActionListener {
 		
 		if(e.getSource() == Start){
 			setVisible(false);
-			//new GamePlay(null);
-			new Interface();
+			new GamePlay(null);
+			//new Interface();
 		}
 		
 	}

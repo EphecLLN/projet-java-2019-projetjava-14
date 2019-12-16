@@ -13,13 +13,16 @@ public class Plateau {
 	protected static int nbCol;
 	protected static char [][] plateau;
 	public String joueur;
+	public int pointsVie;
 	
 	//  Constructeur par d√©faut
 	
+
 	public Plateau() {
 		nbLig = 0;
 		nbCol = 0;
 		plateau = new char[nbLig][nbCol];
+		pointsVie = 0;
 		
 		for(int x=0; x<nbLig; x++) {
 			for(int y=0; y<nbCol; y++) {
@@ -28,17 +31,18 @@ public class Plateau {
 		}
 	}
 	
-	//  Constructeur avec paramamËtres
+	//  Constructeur avec paramamÔøΩtres
 	
 	/**
-     * CrÈÈ le plateau
+     * CrÔøΩÔøΩ le plateau
      * 
      * @param l , le nombre de lignes
      * @param c , le nombre de colonnes
      */
 	
-	public Plateau(String joueur, int l, int c) {
+	public Plateau(String joueur, int l, int c, int v) {
 		this.joueur = joueur ;
+		this.pointsVie = v ;
 		nbLig = l;
 		nbCol = c;
 		plateau = new char[nbLig][nbCol];
@@ -79,9 +83,22 @@ public class Plateau {
 		this.joueur = joueur;
 	}
 
+	public int getPointsVie() {
+		return pointsVie;
+	}
 
+	public void setPointsVie(int pointsVie) {
+		this.pointsVie = pointsVie;
+	}
+
+	public void perdu() {
+		if(this.getPointsVie()<0) {
+			System.out.println("vous avez perdu !!");
+		}
+		
+	}
 	
-		public static void placerBateau(int coordx, int coordy, MVCControllers bateau, String orientation, Plateau plateau) {
+	public static void placerBateau(int coordx, int coordy, MVCControllers bateau, String orientation, Plateau plateau) {
 		
 			int x = coordx-1;
 			int y = coordy-1;
@@ -98,4 +115,5 @@ public class Plateau {
 		
 			}
 		}
+
 }

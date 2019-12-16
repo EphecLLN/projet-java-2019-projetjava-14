@@ -1,5 +1,6 @@
 package projet.JavaCollection;
 
+import projet.JAVAMVCViews.GamePlay;
 //import projet.JAVAMVCViews.GamePlay;
 import projet.JAVAMVCViews.Menu;
 

@@ -12,10 +12,9 @@ public class MVCControllers {
 	private boolean coule;
 	
 	
-	//  Constructeur par défaut
+	//  Constructeur par dï¿½faut
 	
-	public MVCControllers(String nomBateau,
-		    int pointsVie) {
+	public MVCControllers(String nomBateau, int pointsVie) {
 	
 	this.nomBateau = nomBateau;
 	this.pointsVie = pointsVie;
@@ -83,7 +82,7 @@ public class MVCControllers {
 
 	public void BateauHorsZone (int x, int y, String nomBateau) {
 	
-	System.out.println("l'élément x ou y de " +  nomBateau + " est hors limite");
+	System.out.println("l'ï¿½lï¿½ment x ou y de " +  nomBateau + " est hors limite");
 	System.out.println("\tx => " + x + "\n\ty => " + y);
 	}
 
