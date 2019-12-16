@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import projet.JavaMVCControllers.MVCControllers;
 import projet.JavaMVCControllers.Plateau;
+import projet.JavaMVCModels.Shoots;
 
 public class GamePlay {
 	
@@ -12,8 +13,8 @@ public class GamePlay {
 		
 		Plateau [] listePlateaux = new Plateau[2];
 				
-				listePlateaux[0] = new Plateau("joueur 1", 10, 10);
-				listePlateaux[1] = new Plateau("joueur 2", 10, 10);
+				listePlateaux[0] = new Plateau("joueur 1", 10, 10, 0);
+				listePlateaux[1] = new Plateau("joueur 2", 10, 10, 0 );
 				
 				// Initialisation des bateaux
 			    
@@ -22,7 +23,7 @@ public class GamePlay {
 						listeBateaux[0] = new MVCControllers("sous-marins", 1);
 						listeBateaux[1] = new MVCControllers("torpilleurs", 2);
 						listeBateaux[2] = new MVCControllers("croiseurs", 3);
-						listeBateaux[3] = new MVCControllers("cuirassé", 4);
+						listeBateaux[3] = new MVCControllers("cuirassÃ©", 4);
 			
 		Scanner sc = new Scanner(System.in);
 	// ajout nom des joueurs
@@ -43,7 +44,9 @@ public class GamePlay {
 	// Ajout des bateaux dans les plateaux respectifs des joeurs
 	
 	for(int i=0; i < listePlateaux.length ; i++) {
-		System.out.println("\n" + listePlateaux[i].getJoueur() + "\n");
+		
+		System.out.println("\n Joueur : " + listePlateaux[i].getJoueur());
+		MVCViewsConsole.afficherConsole(listePlateaux[i]);
 		for(int b=0; b < listePlateaux[i].getListeBateaux().length ; b++) {
 			int coord [] = new int [2];
 			boolean badInput = true;
@@ -58,26 +61,27 @@ public class GamePlay {
 		    	
 		    	do {
 		    		try {
-		    			System.out.print("introduire coordonnée entre 1 et 10 sur "+coordV);
+		    			System.out.print("introduire coordonnÃ©e entre 1 et 10 sur "+coordV);
 		    			
 		    			coord[c] = sc.nextInt();
 		    			if (0 < coord[c]) {
 		    				badInput = false;
 		    			} else badInput = true;
 		    		} catch (InputMismatchException e) {
-		    			System.out.println("Entrez une coordonnée comprise entre 1 et 10 !");
+		    			System.out.println("Entrez une coordonnÃ©e comprise entre 1 et 10 !");
 		    		}
 		    		sc.nextLine();
 		    	} while (badInput);
 		   	}
 		    
-		    MVCViewsConsole.placerBateau(coord[0],coord[1],listePlateaux[i].getListeBateaux()[b] ,orientation, listePlateaux[i]);
+		    MVCViewsConsole.placerBateau(coord[1],coord[0],listePlateaux[i].getListeBateaux()[b] ,orientation, listePlateaux[i]);
 						
 		}
-		System.out.println("\n" + listePlateaux[i].getJoueur() + "\n");
+		System.out.println("\n Plateau du joueur : " + listePlateaux[i].getJoueur()+" est complet");
 		MVCViewsConsole.afficherConsole(listePlateaux[i]);
 	}
-	}
+	
+}
 	
 
 }

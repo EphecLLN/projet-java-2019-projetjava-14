@@ -34,7 +34,7 @@ public class Interface extends JFrame implements ActionListener {
 	private MVCModel sousMarins;
 	private MVCModel torpilleurs;
 	private MVCModel croiseurs;
-	private MVCModel cuirassé;
+	private MVCModel cuirassÃ©;
 	
 	
 	
@@ -83,7 +83,7 @@ public class Interface extends JFrame implements ActionListener {
 		PlateauxJ1.setLayout(new GridLayout(10, 10, 0, 0));
 		PlateauxJ2.setLayout(new GridLayout(10, 10, 0, 0));
 		
-		//Création bouton des Terrains
+		//Crï¿½ation bouton des Terrains
 		for(int i = 0; i <= 99; i++)
 		{
 			TerrainJ1[i] = new JButton();			
@@ -103,6 +103,8 @@ public class Interface extends JFrame implements ActionListener {
 		setTitle("GamePlay");
 	}
 	
+	
+	
 	public void actionPerformed(ActionEvent e) {
 		
 		
@@ -116,5 +118,5 @@ public class Interface extends JFrame implements ActionListener {
 
 
 /**
- * Interface inspirée de https://github.com/bastian-bou/naval-battle-game
+ * Interface inspirï¿½e de https://github.com/bastian-bou/naval-battle-game
  */

@@ -1,5 +1,7 @@
 package projet.JAVAMVCViews;
 
+import static org.junit.jupiter.api.Assumptions.assumingThat;
+
 import projet.JavaMVCControllers.MVCControllers;
 import projet.JavaMVCControllers.Plateau;
 
@@ -8,34 +10,53 @@ public class MVCViewsConsole extends Plateau {
 		
 	//  Methode
 	/**
-     * Cr�� le sp�parateur entre chaque ligne
+     * Cr�� le sp�parateur entre chaque ligne
      * 
      * @param n, nombre de lignes
      */
 	public static void afficheSeparateur(int n) {
 		for (int i = 0; i < n; i++) {
-			System.out.print(" ���");
+			System.out.print(" ���");
 		}
 		System.out.println();
 	}
+	public static void afficheSeparateurHaut() {
+		System.out.println("   ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐");
+	}
+	public static void afficheSeparateur() {
+			System.out.println("   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤");
+	}
+	public static void afficheSeparateurBas(int n) {
+		
+		System.out.println((n<9)? "   ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤": "   └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘" );
+		
+	}
+	
 	public static void numeroCase(int  n) {
 		for (int i = 0; i <n; i++) {
 			System.out.print("  " + (i + 1) + " ");
 		}
 		System.out.println();
 	}
+	
+	public static String sep(int  n, int y) {
+
+		return (n<9)?" | ":(y==0)?"| ":" | ";
+	}
+	
 	static void afficherConsole(Plateau plateau) {
-		System.out.println("Touch� coul� explos�");
+		System.out.println("Touché coulé explosé");
 		System.out.println();
 		numeroCase(nbCol);
-		afficheSeparateur(nbCol);
+		afficheSeparateurHaut();
 		for(int x=0; x<nbLig; x++) {
+			System.out.print((x+1) + " ");
 			for(int y=0; y<nbCol; y++) {
-				System.out.print(" | " + plateau.getPlateau()[x][y]);
+				System.out.print(sep(x,y) + plateau.getPlateau()[x][y]);
 			
 			}
-			System.out.println(" | " + (x+1));
-			afficheSeparateur(nbCol);
+			System.out.println(" |");
+			afficheSeparateurBas(x);
 		}
 	}
 	
@@ -72,14 +93,14 @@ public class MVCViewsConsole extends Plateau {
 			afficherConsole(plateau);
 		}
 		
-		System.out.println("le Bateau a bien �t� plac� horizontalement en ("+ x + " , " + y +")");
+		System.out.println("le Bateau "+ b.nomBateau +" a bien été placé horizontalement en ("+ x + " , " + y +")");
 	}
 	
 	/**
      	* Ajoute un bateau en horizontale et mAj le plateau en console
      * 
-     * @param x , la position x de d�part du bateau
-     * @param y , la position y de d�part du bateau
+     * @param x , la position x de d�part du bateau
+     * @param y , la position y de d�part du bateau
      * @param t , le type de bateau ( taille de celui-ci)
      */
 	
@@ -102,10 +123,13 @@ public class MVCViewsConsole extends Plateau {
 		}
 		for(int i=0; i < b.getPointsVie(); i++ ) {
 			plateau.getPlateau()[by+i][bx] = 'B';
-			afficherConsole(plateau);
 		}
-		
-		System.out.println("le Bateau a bien �t� plac� verticalement en ("+ x + " , " + y +")");
+		int v = plateau.getPointsVie();
+		int newV = v+b.getPointsVie();
+		plateau.setPointsVie(newV);
+		afficherConsole(plateau);
+		System.out.println("points vie : "+ newV);
+		System.out.println("le Bateau "+ b.nomBateau +" a bien été placé verticalement en ("+ x + " , " + y +")");
 	}
 	
 	//test tire en une coord(x,y)
