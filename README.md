@@ -15,8 +15,7 @@ projet et de pouvoir faire un travail collaboratif entre étudiants.
 #### Contraintes :
 - L’application doit respecter l’architecture MVC avec deux interfaces utilisateurs (une
 interface console et une interface graphique, éventuellement web)
-- L’application doit comporter une communication réseau, une interaction avec une
-base de données ou un web service (concepts à découvrir éventuellement en autoapprentissage).
+- L’application doit comporter une communication réseau.
 - L’application doit utiliser au moins une structure de données du framework Java
 Collection (HashMap, List, ...).
 - Implémentation du code via GitHub. <br>
