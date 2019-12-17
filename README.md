@@ -15,7 +15,7 @@ projet et de pouvoir faire un travail collaboratif entre étudiants.
 #### Contraintes :
 - L’application doit respecter l’architecture MVC avec deux interfaces utilisateurs (une
 interface console et une interface graphique, éventuellement web)
-- L’application doit comporter une communication réseau.
+- L’application doit comporte une communication réseau.
 - L’application doit utiliser au moins une structure de données du framework Java
 Collection (HashMap, List, ...).
 - Implémentation du code via GitHub. <br>
@@ -31,8 +31,8 @@ tailles différentes :
 
 Les joueurs sont libres de les placer verticalement ou horizontalement sur une grille de 10 x
 10. <br>
-Vient ensuite le tour de jeu, un joueur aléatoire commence par indiquer une ligne de 0 à 10
-et ensuite une colonne de A à J. <br>
+Vient ensuite le tour de jeu, un joueur aléatoire commence par indiquer une ligne x de 1 à 10
+et ensuite une colonne y 1 à 10. <br>
 S’il touche un bateau, il y a touché et il recommence à choisir une case.<br>
 S’il manque, il y a coulé et c’est à l’autre joueur de dire une position.<br>
 Un bateau est coulé lorsque tout les cases ou il a été posé ont été touchées (2 cases pour le
